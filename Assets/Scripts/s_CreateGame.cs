@@ -49,13 +49,14 @@ public class s_CreateGame : MonoBehaviour
             PhotonNetwork.playerName = "server";
             playerJoinedRoom = false;
         }
+        
 
         if (PhotonNetwork.inRoom)
         {
             numberPlayersText.text = "#: " + PhotonNetwork.room.PlayerCount.ToString() + " |";
-            for (int i = PhotonNetwork.room.PlayerCount-1; i >= 0; i--)
+            for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {
-                numberPlayersText.text += " " + PhotonNetwork.playerList[i].NickName + ", ";
+                numberPlayersText.text += " " + PhotonNetwork.otherPlayers[i].NickName + ", ";
             }
         }
 
