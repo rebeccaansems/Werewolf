@@ -30,13 +30,19 @@ public class c_JoinGame : MonoBehaviour
 
         RoomInfo[] rooms = PhotonNetwork.GetRoomList();
 
+        infoText.color = Color.green;
+        infoText.text = "Attempting to join: " + joinRoomCode;
+
         for (int i = 0; i < rooms.Length; i++)
         {
             if (rooms[i].Name.Equals(joinRoomCode))
             {
-                Debug.Log("[PHOTON] Joined room: " + joinRoomCode);
+                Debug.Log("[PHOTON] Joined: " + joinRoomCode);
                 PhotonNetwork.JoinRoom(joinRoomCode);
                 roomExists = true;
+
+                infoText.color = Color.green;
+                infoText.text = "Joined: " + joinRoomCode;
 
                 SceneManager.LoadScene("Controller01_CharacterSelect");
 
