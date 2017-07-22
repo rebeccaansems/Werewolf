@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class c_JoinGame : MonoBehaviour
 {
@@ -34,12 +35,11 @@ public class c_JoinGame : MonoBehaviour
             if (rooms[i].Name.Equals(joinRoomCode))
             {
                 Debug.Log("[PHOTON] Joined room: " + joinRoomCode);
-
-                infoText.color = Color.green;
-                infoText.text = "Room code " + joinRoomCode + " has been joined.";
-
                 PhotonNetwork.JoinRoom(joinRoomCode);
                 roomExists = true;
+
+                SceneManager.LoadScene("Controller01_CharacterSelect");
+
                 break;
             }
         }

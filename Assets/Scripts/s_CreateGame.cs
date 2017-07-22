@@ -46,13 +46,17 @@ public class s_CreateGame : MonoBehaviour
         {
             Debug.Log("[PHOTON] Room Created: " + roomCode);
             PhotonNetwork.JoinOrCreateRoom(roomCode, new RoomOptions() { MaxPlayers = 12, PlayerTtl = 600000 }, TypedLobby.Default);
-
+            PhotonNetwork.playerName = "server";
             playerJoinedRoom = false;
         }
 
         if (PhotonNetwork.inRoom)
         {
-            numberPlayersText.text = PhotonNetwork.room.PlayerCount.ToString();
+            numberPlayersText.text = "#: " + PhotonNetwork.room.PlayerCount.ToString() + " |";
+            for (int i = PhotonNetwork.room.PlayerCount-1; i >= 0; i--)
+            {
+                numberPlayersText.text += " " + PhotonNetwork.playerList[i].NickName + ", ";
+            }
         }
 
     }
