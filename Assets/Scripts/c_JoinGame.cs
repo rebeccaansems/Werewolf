@@ -7,7 +7,7 @@ public class c_JoinGame : MonoBehaviour
 {
     public const string VERSION = "0.1";
 
-    public Text errorText;
+    public Text infoText;
     public InputField roomCodeInput;
 
     private string joinRoomCode;
@@ -34,6 +34,10 @@ public class c_JoinGame : MonoBehaviour
             if (rooms[i].Name.Equals(joinRoomCode))
             {
                 Debug.Log("[PHOTON] Joined room: " + joinRoomCode);
+
+                infoText.color = Color.green;
+                infoText.text = "Room code " + joinRoomCode + " has been joined.";
+
                 PhotonNetwork.JoinRoom(joinRoomCode);
                 roomExists = true;
                 break;
@@ -43,7 +47,9 @@ public class c_JoinGame : MonoBehaviour
         if (!roomExists)
         {
             Debug.Log("[PHOTON] Failed to join: " + joinRoomCode);
-            errorText.text = "Room code " + joinRoomCode + " does not exist.";
+
+            infoText.color = Color.red;
+            infoText.text = "Room code " + joinRoomCode + " does not exist.";
         }
     }
 }
