@@ -7,11 +7,16 @@ public class s_CreateGame : MonoBehaviour
 {
     public const string VERSION = "0.1";
 
-    public Text roomCodeText, numberPlayersText;
+
+    public Text roomCodeText;
 
     public string roomCode { get; private set; }
 
+
+    private List<PhotonPlayer> allPlayers = new List<PhotonPlayer>();
+
     private bool playerJoinedRoom = true;
+    private int previousNumberPlayers = 1;
 
     void Start()
     {
@@ -20,7 +25,7 @@ public class s_CreateGame : MonoBehaviour
 
         PhotonNetwork.autoJoinLobby = false;
 
-        if (!(PhotonNetwork.connected))
+        if (!PhotonNetwork.connected)
         {
             PhotonNetwork.ConnectUsingSettings(VERSION);
         }
@@ -31,11 +36,11 @@ public class s_CreateGame : MonoBehaviour
         string possibleLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
         string word = "";
         word += possibleLetters[Random.Range(0, possibleLetters.Length)];
-        word += possibleLetters[Random.Range(0, possibleLetters.Length)];
-        word += possibleLetters[Random.Range(0, possibleLetters.Length)];
-        word += possibleLetters[Random.Range(0, possibleLetters.Length)];
-        word += possibleLetters[Random.Range(0, possibleLetters.Length)];
-        word += possibleLetters[Random.Range(0, possibleLetters.Length)];
+        //word += possibleLetters[Random.Range(0, possibleLetters.Length)];
+        //word += possibleLetters[Random.Range(0, possibleLetters.Length)];
+        //word += possibleLetters[Random.Range(0, possibleLetters.Length)];
+        //word += possibleLetters[Random.Range(0, possibleLetters.Length)];
+        //word += possibleLetters[Random.Range(0, possibleLetters.Length)];
 
         return word;
     }
@@ -46,19 +51,31 @@ public class s_CreateGame : MonoBehaviour
         {
             Debug.Log("[PHOTON] Room Created: " + roomCode);
             PhotonNetwork.JoinOrCreateRoom(roomCode, new RoomOptions() { MaxPlayers = 12, PlayerTtl = 600000 }, TypedLobby.Default);
-            PhotonNetwork.playerName = "server";
+            PhotonNetwork.playerName = "";
+
+            ExitGames.Client.Photon.Hashtable playerInfo = new ExitGames.Client.Photon.Hashtable();
+            playerInfo.Add("JoinNumber", -1);
+            PhotonNetwork.player.SetCustomProperties(playerInfo);
+
             playerJoinedRoom = false;
         }
-        
 
-        if (PhotonNetwork.inRoom)
+        //give players join numbers
+        if (PhotonNetwork.inRoom && PhotonNetwork.room.PlayerCount > previousNumberPlayers)
         {
-            numberPlayersText.text = "#: " + PhotonNetwork.room.PlayerCount.ToString() + " |";
+            previousNumberPlayers = PhotonNetwork.room.PlayerCount;
             for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {
-                numberPlayersText.text += " " + PhotonNetwork.otherPlayers[i].NickName + ", ";
+                if (!allPlayers.Contains(PhotonNetwork.otherPlayers[i]))
+                {
+                    allPlayers.Add(PhotonNetwork.otherPlayers[i]);
+
+                    ExitGames.Client.Photon.Hashtable playerInfo = new ExitGames.Client.Photon.Hashtable();
+                    playerInfo.Add("JoinNumber", i);
+                    PhotonNetwork.otherPlayers[i].SetCustomProperties(playerInfo);
+                    Debug.Log("[PHOTON] Added new player with join ID: " + PhotonNetwork.otherPlayers[i].CustomProperties["JoinNumber"].ToString());
+                }
             }
         }
-
     }
 }
