@@ -16,12 +16,12 @@ public class c_JoinGame : MonoBehaviour
 
     void Start()
     {
-        //PhotonNetwork.autoJoinLobby = true;
+        PhotonNetwork.autoJoinLobby = true;
 
-        //if (!PhotonNetwork.connected)
-        //{
-        //    PhotonNetwork.ConnectUsingSettings(VERSION);
-        //}
+        if (!PhotonNetwork.connected)
+        {
+            PhotonNetwork.ConnectUsingSettings(VERSION);
+        }
     }
 
     public void JoinGame()
