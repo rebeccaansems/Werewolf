@@ -27,36 +27,36 @@ public class c_JoinGame : MonoBehaviour
     public void JoinGame()
     {
         infoText.text = "button";
-        //joinRoomCode = roomCodeInput.text.ToUpper();
+        joinRoomCode = roomCodeInput.text.ToUpper();
 
-        //RoomInfo[] rooms = PhotonNetwork.GetRoomList();
+        RoomInfo[] rooms = PhotonNetwork.GetRoomList();
 
-        //infoText.color = Color.green;
-        //infoText.text = "Attempting to join: " + joinRoomCode;
+        infoText.color = Color.green;
+        infoText.text = "Attempting to join: " + joinRoomCode;
 
-        //for (int i = 0; i < rooms.Length; i++)
-        //{
-        //    if (rooms[i].Name.Equals(joinRoomCode))
-        //    {
-        //        Debug.Log("[PHOTON] Joined: " + joinRoomCode);
-        //        PhotonNetwork.JoinRoom(joinRoomCode);
-        //        roomExists = true;
+        for (int i = 0; i < rooms.Length; i++)
+        {
+            if (rooms[i].Name.Equals(joinRoomCode))
+            {
+                Debug.Log("[PHOTON] Joined: " + joinRoomCode);
+                PhotonNetwork.JoinRoom(joinRoomCode);
+                roomExists = true;
 
-        //        infoText.color = Color.green;
-        //        infoText.text = "Joined: " + joinRoomCode;
+                infoText.color = Color.green;
+                infoText.text = "Joined: " + joinRoomCode;
 
-        //        SceneManager.LoadScene("Controller01_CharacterSelect");
+                SceneManager.LoadScene("Controller01_CharacterSelect");
 
-        //        break;
-        //    }
-        //}
+                break;
+            }
+        }
 
-        //if (!roomExists)
-        //{
-        //    Debug.Log("[PHOTON] Failed to join: " + joinRoomCode);
+        if (!roomExists)
+        {
+            Debug.Log("[PHOTON] Failed to join: " + joinRoomCode);
 
-        //    infoText.color = Color.red;
-        //    infoText.text = "Room code " + joinRoomCode + " does not exist.";
-        //}
+            infoText.color = Color.red;
+            infoText.text = "Room code " + joinRoomCode + " does not exist.";
+        }
     }
 }
