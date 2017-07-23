@@ -1685,6 +1685,7 @@ MonoBehaviour:
   startGamePanel: {fileID: 831037212}
   nameBlockHeader: {fileID: 1375984593}
   nameBlock: {fileID: 1299526138236352, guid: 1f405e8e3cdbb8344a0443947ad098d2, type: 2}
+  startGameButton: {fileID: 6859910}
 --- !u!1 &1952261883
 GameObject:
   m_ObjectHideFlags: 0

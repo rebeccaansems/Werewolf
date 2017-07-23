@@ -7,7 +7,7 @@ public class c_CharacterSelect : MonoBehaviour
 {
 
     public InputField playerName;
-    public GameObject submitCharPanel, startGamePanel, nameBlockHeader, nameBlock;
+    public GameObject submitCharPanel, startGamePanel, nameBlockHeader, nameBlock, startGameButton;
 
     private int previousNumPlayers = 1;
     private List<bool> hasBeenAdded = new List<bool>() { false, false, false, false, false, false };
@@ -16,11 +16,16 @@ public class c_CharacterSelect : MonoBehaviour
     {
         PhotonNetwork.playerName = playerName.text;
         submitCharPanel.SetActive(false);
+        startGamePanel.SetActive(true);
 
         if (PhotonNetwork.player.ID == 2)
         {
             Debug.Log("[PHOTON] Player is first to join");
-            startGamePanel.SetActive(true);
+            startGameButton.SetActive(true);
+        }
+        else
+        {
+            startGameButton.SetActive(false);
         }
     }
 
