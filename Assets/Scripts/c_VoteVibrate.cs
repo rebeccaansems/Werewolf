@@ -13,16 +13,16 @@ public class c_VoteVibrate : MonoBehaviour
         {
             if (PhotonNetwork.playerList[i].CustomProperties["JoinNumber"] != null)
             {
-                //int playerNum = int.Parse(PhotonNetwork.playerList[i].CustomProperties["JoinNumber"].ToString());
-                //if (playerNum != -1 && !PhotonNetwork.playerList[i].NickName.Equals(""))
-                //{
+                int playerNum = int.Parse(PhotonNetwork.playerList[i].CustomProperties["JoinNumber"].ToString());
+                if (playerNum != -1 && !PhotonNetwork.playerList[i].NickName.Equals(""))
+                {
                     GameObject newVoteBlock = Instantiate(voteBlock, voteBlockHeader.transform);
                     int charIndex = int.Parse(PhotonNetwork.playerList[i].CustomProperties["CharacterArtNum"].ToString());
 
-                    voteBlock.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.playerList[i].NickName;
-                    voteBlock.transform.GetChild(1).GetComponent<Text>().text = GetComponent<c_PossibleCharacterInfo>().characterSubs[charIndex];
-                    voteBlock.transform.GetChild(2).GetComponent<Image>().sprite = GetComponent<c_PossibleCharacterInfo>().characterHeadshot[charIndex];
-               // }
+                    newVoteBlock.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.playerList[i].NickName;
+                    newVoteBlock.transform.GetChild(1).GetComponent<Text>().text = GetComponent<c_PossibleCharacterInfo>().characterSubs[charIndex];
+                    newVoteBlock.transform.GetChild(2).GetComponent<Image>().sprite = GetComponent<c_PossibleCharacterInfo>().characterHeadshot[charIndex];
+                }
             }
         }
     }
