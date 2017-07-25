@@ -1702,14 +1702,41 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ec0ff956455f3984c8da273a929c14fa, type: 3}
   - {fileID: 21300000, guid: d158415ffc8ba594184f154b91eba02a, type: 3}
   - {fileID: 21300000, guid: 9e413bafa1096194b916404558b9f378, type: 3}
+  - {fileID: 21300000, guid: 325207b3ceda40d43996cf188941aa3d, type: 3}
+  - {fileID: 21300000, guid: fe15b3e67f89104478a97620bcb1d01c, type: 3}
+  - {fileID: 21300000, guid: 81af4788f588bb944930bd421a1c589d, type: 3}
+  - {fileID: 21300000, guid: 5a73fae990e04af4ebcee68a1918cf84, type: 3}
+  - {fileID: 21300000, guid: 43d5e9be91ce3814ba532f9d66873b37, type: 3}
+  - {fileID: 21300000, guid: 7d4120769782d564794a6f43d4a56d8d, type: 3}
+  - {fileID: 21300000, guid: 025f097f91644f949b0b7306d0618821, type: 3}
+  - {fileID: 21300000, guid: 6448941433fdf9d4caf4f20b242c7068, type: 3}
+  - {fileID: 21300000, guid: 0609033cb305db747ad60afbdccf04e6, type: 3}
   characterHeadshot:
   - {fileID: 21300000, guid: 64d094e270c5f1449af4dc528cc6a936, type: 3}
   - {fileID: 21300000, guid: a86e84c10ceb6f4428ed78f927c75c6b, type: 3}
   - {fileID: 21300000, guid: 3a8b50466ec9f9a4285c14d87445a353, type: 3}
+  - {fileID: 21300000, guid: 3b22dc0572c2d66489897aa997a1e0d4, type: 3}
+  - {fileID: 21300000, guid: 55003bf8a81e23b4abc39584acc42b65, type: 3}
+  - {fileID: 21300000, guid: d456a8fc87863164e9873d6506baaa81, type: 3}
+  - {fileID: 21300000, guid: c2506521d9e9e534fbf1d8c438578510, type: 3}
+  - {fileID: 21300000, guid: e9ea24faa3683094d832e3cb8564f457, type: 3}
+  - {fileID: 21300000, guid: c621e58a454ce9f47a1ad61e659b58c2, type: 3}
+  - {fileID: 21300000, guid: 084afa4b367d0744fa895f9bca2fef17, type: 3}
+  - {fileID: 21300000, guid: 2dff44c02c826fe40999160efb9c83f6, type: 3}
+  - {fileID: 21300000, guid: 5c433501fbc49d745b2af61bba5b5db7, type: 3}
   characterSubs:
-  - The Young Gentleman
-  - The Smoker
-  - The Student
+  - The Artist
+  - The Musician
+  - The Therapist
+  - The Dentist
+  - The Mechanic
+  - The Paralegal
+  - The School Counselor
+  - The Architect
+  - The Landscaper
+  - The Lawyer
+  - The Engineer
+  - The Librarian
 --- !u!1 &1952261883
 GameObject:
   m_ObjectHideFlags: 0
