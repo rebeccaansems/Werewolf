@@ -9,8 +9,13 @@ public class c_VoteVibrate : MonoBehaviour
     public Sprite emptyTickBox, tickedBox;
     public Image[] allTickBoxes;
 
-    private bool[] votedPlayers = new bool[PhotonNetwork.room.PlayerCount - 1];
+    private bool[] votedPlayers;
     private int currentVote;
+
+    private void Awake()
+    {
+        votedPlayers = new bool[PhotonNetwork.room.PlayerCount - 1];
+    }
 
     private void Start()
     {

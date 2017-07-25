@@ -11,7 +11,7 @@ public class c_CharacterSelect : MonoBehaviour
     public Image characterImage;
 
     private int previousNumPlayers = 1, currentCharIndex = 0;
-    private List<bool> hasBeenAdded = new List<bool>() { false, false, false, false, false, false };
+    private List<bool> hasBeenAdded = new List<bool>();
 
     public void SubmitPlayerInfo()
     {
