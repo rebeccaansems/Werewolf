@@ -185,7 +185,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1930024418}
-        m_MethodName: submitPlayerInfo
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1660,6 +1660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930024417}
   - component: {fileID: 1930024418}
+  - component: {fileID: 1930024419}
   m_Layer: 0
   m_Name: Character Select Controller
   m_TagString: Untagged
@@ -1698,6 +1699,17 @@ MonoBehaviour:
   nameBlock: {fileID: 1299526138236352, guid: 1f405e8e3cdbb8344a0443947ad098d2, type: 2}
   startGameButton: {fileID: 6859910}
   characterImage: {fileID: 1505463385}
+--- !u!114 &1930024419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930024416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531f7297110d01a449e12b41d4c5a640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   characters:
   - {fileID: 21300000, guid: ec0ff956455f3984c8da273a929c14fa, type: 3}
   - {fileID: 21300000, guid: d158415ffc8ba594184f154b91eba02a, type: 3}
@@ -1726,17 +1738,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5c433501fbc49d745b2af61bba5b5db7, type: 3}
   characterSubs:
   - The Artist
-  - The Musician
-  - The Therapist
+  - The Financial Advisor
+  - The Reporter
+  - The Software Developer
+  - The Reporter
+  - The Professor
+  - The Writer
   - The Dentist
-  - The Mechanic
-  - The Paralegal
-  - The School Counselor
-  - The Architect
-  - The Landscaper
-  - The Lawyer
-  - The Engineer
-  - The Librarian
+  - The Therapist
+  - The Paramedic
+  - The Accountant
+  - The Historian
 --- !u!1 &1952261883
 GameObject:
   m_ObjectHideFlags: 0
