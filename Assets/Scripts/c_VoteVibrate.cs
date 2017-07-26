@@ -9,6 +9,8 @@ public class c_VoteVibrate : MonoBehaviour
     public Sprite emptyTickBox, tickedBox;
     public Image[] allTickBoxes;
 
+    public g_Vibrate gVib;
+
     private bool[] votedPlayers;
     private int currentVote;
 
@@ -56,10 +58,11 @@ public class c_VoteVibrate : MonoBehaviour
 
         currentVote = playerVoteNum;
     }
-
+    
     public void SendVote()
     {
         Debug.Log("[PHOTON] Player sent vibrate vote: " + currentVote);
+        gVib.SendVibrate();
     }
 
     private void LoadPlayers()
