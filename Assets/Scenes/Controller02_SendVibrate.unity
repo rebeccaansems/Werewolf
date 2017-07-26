@@ -294,9 +294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voteBlock: {fileID: 1053322199409438, guid: 74fc2dd3df50f19409724e8cbe7a7aa3, type: 2}
   voteBlockHeader: {fileID: 1952934675}
-  allTickBoxes: []
   emptyTickBox: {fileID: 21300000, guid: f46dbd4a6ce467f4e822076bbb3150fc, type: 3}
   tickedBox: {fileID: 21300000, guid: e59483e1d43fe33478fec069791b4a1b, type: 3}
+  allTickBoxes: []
 --- !u!4 &686825938
 Transform:
   m_ObjectHideFlags: 0
