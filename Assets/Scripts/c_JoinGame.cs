@@ -26,7 +26,6 @@ public class c_JoinGame : MonoBehaviour
 
     public void JoinGame()
     {
-        infoText.text = "button";
         joinRoomCode = roomCodeInput.text.ToUpper();
 
         RoomInfo[] rooms = PhotonNetwork.GetRoomList();
@@ -36,7 +35,7 @@ public class c_JoinGame : MonoBehaviour
 
         for (int i = 0; i < rooms.Length; i++)
         {
-            if (rooms[i].Name.Equals(joinRoomCode))
+            if (rooms[i].Name.Equals(joinRoomCode) && rooms[i].IsOpen)
             {
                 Debug.Log("[PHOTON] Joined: " + joinRoomCode);
                 PhotonNetwork.JoinRoom(joinRoomCode);
@@ -46,8 +45,8 @@ public class c_JoinGame : MonoBehaviour
                 infoText.text = "Joined: " + joinRoomCode;
 
                 SceneManager.LoadScene("Controller01_CharacterSelect");
-
                 break;
+
             }
         }
 
