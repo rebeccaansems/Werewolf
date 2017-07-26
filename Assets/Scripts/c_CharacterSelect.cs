@@ -59,7 +59,7 @@ public class c_CharacterSelect : MonoBehaviour
     public void StartGame()
     {
         gameStart.SendGameHasStarted();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Controller02_SendVibrate");
     }
 
     private void Update()

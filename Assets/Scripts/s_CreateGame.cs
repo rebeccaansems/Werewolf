@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class s_CreateGame : MonoBehaviour
@@ -49,6 +50,7 @@ public class s_CreateGame : MonoBehaviour
     {
         Debug.Log("[PHOTON] Game has started");
         PhotonNetwork.room.IsOpen = false;
+        SceneManager.LoadScene("Server01_GameStarted");
     }
 
     private void Update()
