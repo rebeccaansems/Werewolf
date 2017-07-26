@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class g_GameStart : Photon.MonoBehaviour
 {
-
     public s_CreateGame server;
 
     public void SendGameHasStarted()

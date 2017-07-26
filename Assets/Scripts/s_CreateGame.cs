@@ -13,9 +13,6 @@ public class s_CreateGame : MonoBehaviour
 
     public string roomCode { get; private set; }
 
-
-    private List<PhotonPlayer> allPlayers = new List<PhotonPlayer>();
-
     private bool playerJoinedRoom = true;
     private int previousNumberPlayers = 1;
 
@@ -74,9 +71,9 @@ public class s_CreateGame : MonoBehaviour
             previousNumberPlayers = PhotonNetwork.room.PlayerCount;
             for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {
-                if (!allPlayers.Contains(PhotonNetwork.otherPlayers[i]))
+                if (!s_global.allPlayers.Contains(PhotonNetwork.otherPlayers[i]))
                 {
-                    allPlayers.Add(PhotonNetwork.otherPlayers[i]);
+                    s_global.allPlayers.Add(PhotonNetwork.otherPlayers[i]);
 
                     ExitGames.Client.Photon.Hashtable playerInfo = new ExitGames.Client.Photon.Hashtable();
                     playerInfo.Add("JoinNumber", i);

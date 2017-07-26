@@ -62,7 +62,7 @@ public class c_VoteVibrate : MonoBehaviour
     public void SendVote()
     {
         Debug.Log("[PHOTON] Player sent vibrate vote: " + currentVote);
-        gVib.SendVibrate();
+        gVib.SendVibrate(currentVote);
     }
 
     private void LoadPlayers()
