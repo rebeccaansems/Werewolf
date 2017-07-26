@@ -45,6 +45,12 @@ public class s_CreateGame : MonoBehaviour
         return word;
     }
 
+    public void GameHasStarted()
+    {
+        Debug.Log("[PHOTON] Game has started");
+        PhotonNetwork.room.IsOpen = false;
+    }
+
     private void Update()
     {
         if (PhotonNetwork.connectionStateDetailed.ToString().Equals("ConnectedToMaster") && playerJoinedRoom)

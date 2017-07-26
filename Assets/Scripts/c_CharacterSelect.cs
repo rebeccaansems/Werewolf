@@ -10,6 +10,8 @@ public class c_CharacterSelect : MonoBehaviour
     public GameObject submitCharPanel, startGamePanel, nameBlockHeader, nameBlock, startGameButton;
     public Image characterImage;
 
+    public g_GameStart gameStart;
+
     private int previousNumPlayers = 1, currentCharIndex = 0;
     private bool[] hasBeenAdded = new bool[12];
 
@@ -56,6 +58,7 @@ public class c_CharacterSelect : MonoBehaviour
 
     public void StartGame()
     {
+        gameStart.SendGameHasStarted();
         SceneManager.LoadScene(2);
     }
 

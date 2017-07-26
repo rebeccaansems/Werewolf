@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class g_Vibrate : Photon.MonoBehaviour
+public class g_Vibrate : MonoBehaviour
 {
-   
     public void SendVibrate()
     {
         this.GetComponent<PhotonView>().RPC("Vibrate", PhotonNetwork.masterClient);
