@@ -12,7 +12,7 @@ public class c_CharacterSelect : MonoBehaviour
 
     public g_GameStart gameStart;
 
-    private int previousNumPlayers = 1, currentCharIndex = 0;
+    private int previousNumPlayers = 1, currentCharacterIndex = 0;
     private bool[] hasBeenAdded = new bool[12];
 
     public void SubmitPlayerInfo()
@@ -24,7 +24,7 @@ public class c_CharacterSelect : MonoBehaviour
             startGamePanel.SetActive(true);
 
             ExitGames.Client.Photon.Hashtable playerInfo = new ExitGames.Client.Photon.Hashtable();
-            playerInfo.Add("CharacterArtNum", currentCharIndex);
+            playerInfo.Add("CharacterArtNum", currentCharacterIndex);
             PhotonNetwork.player.SetCustomProperties(playerInfo);
 
             if (PhotonNetwork.player.ID == 2)
@@ -42,18 +42,18 @@ public class c_CharacterSelect : MonoBehaviour
 
     public void CharacterButtonPressed(int direction)
     {
-        currentCharIndex += direction;
+        currentCharacterIndex += direction;
 
-        if (currentCharIndex < 0)
+        if (currentCharacterIndex < 0)
         {
-            currentCharIndex = GetComponent<c_PossibleCharacterInfo>().characters.Length - 1;
+            currentCharacterIndex = GetComponent<c_PossibleCharacterInfo>().characters.Length - 1;
         }
-        else if (currentCharIndex > GetComponent<c_PossibleCharacterInfo>().characters.Length - 1)
+        else if (currentCharacterIndex > GetComponent<c_PossibleCharacterInfo>().characters.Length - 1)
         {
-            currentCharIndex = 0;
+            currentCharacterIndex = 0;
         }
 
-        characterImage.sprite = GetComponent<c_PossibleCharacterInfo>().characters[currentCharIndex];
+        characterImage.sprite = GetComponent<c_PossibleCharacterInfo>().characters[currentCharacterIndex];
     }
 
     public void StartGame()
@@ -75,6 +75,7 @@ public class c_CharacterSelect : MonoBehaviour
                     {
                         hasBeenAdded[playerNum] = true;
                         GameObject newNameBlock = Instantiate(nameBlock, nameBlockHeader.transform);
+                        s_global.allPlayers.Add(PhotonNetwork.playerList[i]);
                         int charIndex = int.Parse(PhotonNetwork.playerList[i].CustomProperties["CharacterArtNum"].ToString());
 
                         newNameBlock.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.playerList[i].NickName;
@@ -84,6 +85,7 @@ public class c_CharacterSelect : MonoBehaviour
                     }
                 }
             }
+            startGameButton.GetComponent<Button>().interactable = (PhotonNetwork.room.PlayerCount - 1 == s_global.allPlayers.Count);
         }
     }
 }
